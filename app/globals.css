@@ -1,0 +1,129 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  /* supa-style color tokens */
+  --color-voltage-violet: #862fe7;
+  --color-ultra-violet: #5f259e;
+  --color-lavender-mist: #ad6df4;
+  --color-orchid-wash: #bd8ff0;
+  --color-magenta-spark: #ff5fe4;
+  --color-hot-pink-ray: #e22ba4;
+  --color-amber-pulse: #dc5f05;
+  --color-midnight-ink: #111827;
+  --color-graphite: #3f4654;
+  --color-slate: #6b7589;
+  --color-pure-white: #ffffff;
+  --color-fog: #f1f5f9;
+  --color-mist: #d8e0ea;
+  --color-mint-wash: #d6fcf4;
+  --color-lavender-field: #ebdafd;
+
+  /* Semantic mappings */
+  --color-background: var(--color-pure-white);
+  --color-foreground: var(--color-midnight-ink);
+  --color-border: var(--color-mist);
+  --color-card: var(--color-pure-white);
+  --color-card-foreground: var(--color-midnight-ink);
+  --color-primary: var(--color-voltage-violet);
+  --color-primary-foreground: var(--color-pure-white);
+  --color-secondary: var(--color-fog);
+  --color-secondary-foreground: var(--color-midnight-ink);
+  --color-muted: var(--color-fog);
+  --color-muted-foreground: var(--color-slate);
+  --color-accent: var(--color-lavender-field);
+  --color-accent-foreground: var(--color-midnight-ink);
+  --color-destructive: oklch(0.577 0.245 27.325);
+  --color-ring: var(--color-voltage-violet);
+  --color-input: var(--color-mist);
+  --color-popover: var(--color-pure-white);
+  --color-popover-foreground: var(--color-midnight-ink);
+
+  /* Fonts */
+  --font-sans: 'Inter', 'Inter Fallback', sans-serif;
+  --font-display: 'Bricolage Grotesque', 'Bricolage Grotesque Fallback', sans-serif;
+  --font-mono: 'JetBrains Mono', 'JetBrains Mono Fallback', monospace;
+
+  /* Radius — supa-style signature */
+  --radius: 0.75rem;
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-2xl: 2.5rem;
+  --radius-pill: 9999px;
+
+  /* Shadcn sidebar compat */
+  --color-sidebar-ring: var(--color-voltage-violet);
+  --color-sidebar-border: var(--color-mist);
+  --color-sidebar-accent-foreground: var(--color-midnight-ink);
+  --color-sidebar-accent: var(--color-fog);
+  --color-sidebar-primary-foreground: var(--color-pure-white);
+  --color-sidebar-primary: var(--color-voltage-violet);
+  --color-sidebar-foreground: var(--color-midnight-ink);
+  --color-sidebar: var(--color-pure-white);
+  --color-chart-1: #862fe7;
+  --color-chart-2: #ad6df4;
+  --color-chart-3: #5f259e;
+  --color-chart-4: #dc5f05;
+  --color-chart-5: #e22ba4;
+}
+
+:root {
+  color-scheme: light;
+  --background: #ffffff;
+  --foreground: #111827;
+  --card: #ffffff;
+  --card-foreground: #111827;
+  --popover: #ffffff;
+  --popover-foreground: #111827;
+  --primary: #862fe7;
+  --primary-foreground: #ffffff;
+  --secondary: #f1f5f9;
+  --secondary-foreground: #111827;
+  --muted: #f1f5f9;
+  --muted-foreground: #6b7589;
+  --accent: #ebdafd;
+  --accent-foreground: #111827;
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: #d8e0ea;
+  --input: #d8e0ea;
+  --ring: #862fe7;
+  --radius: 0.75rem;
+  --sidebar: #ffffff;
+  --sidebar-foreground: #111827;
+  --sidebar-primary: #862fe7;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #f1f5f9;
+  --sidebar-accent-foreground: #111827;
+  --sidebar-border: #d8e0ea;
+  --sidebar-ring: #862fe7;
+  --chart-1: #862fe7;
+  --chart-2: #ad6df4;
+  --chart-3: #5f259e;
+  --chart-4: #dc5f05;
+  --chart-5: #e22ba4;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+}
+
+/* Gradient orb utilities */
+.orb-violet {
+  background: radial-gradient(circle at 0px -50%, rgba(255,255,255,0) 15%, rgba(152,26,249,0.4) 38%, rgba(255,255,255,0) 65%);
+}
+.orb-pink {
+  background: linear-gradient(214deg, rgba(255,255,255,0), rgba(255,52,143,0.3) 25%, rgba(255,255,255,0) 71%);
+}
+.orb-amber {
+  background: radial-gradient(circle at 0px -50%, rgba(255,255,255,0) 15%, rgba(249,167,26,0.4) 38%, rgba(255,255,255,0) 65%);
+}
