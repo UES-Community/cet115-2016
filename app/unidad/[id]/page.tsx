@@ -10,7 +10,7 @@ type Props = {
 }
 
 export async function generateStaticParams() {
-  return ['1', '2', '3', '4', '5', '6'].map((id) => ({ id }))
+  return ['1', '2', '3', '4', '5', '6', '7'].map((id) => ({ id }))
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
