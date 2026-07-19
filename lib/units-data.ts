@@ -219,6 +219,20 @@ export const unitsData: Record<string, UnitData> = {
           'Los efectos de red directos crean barreras defensivas de mercado muy fuertes.',
         ],
       },
+      {
+        id: 'u2-t2',
+        title: 'Adaptación del Business Model Canvas para Empresas Digitales',
+        subtitle: 'Estructuración de propuestas de valor y canales digitales',
+        content: `El Canvas Digital adapta el modelo tradicional de Alexander Osterwalder priorizando métricas de adquisición, economías de escala de software y bucles de virabilidad.
+
+1. **Propuesta de Valor Digital:** Resolución de fricciones mediante velocidad, conveniencia o costo cero marginal.
+2. **Estructura de Costos:** Desplazamiento de costos fijos físicos hacia costos de infraestructura cloud, APIs y adquisición de usuarios (CAC).
+3. **Flujos de Ingresos:** Diversificación entre suscripción, comisión transaccional, venta cruzada (cross-selling) y monetización publicitaria.`,
+        keyTakeaways: [
+          'En negocios digitales el costo marginal de atender a un usuario adicional tiende a cero.',
+          'La adquisición y retención de usuarios son los pilares fundamentales del Canvas Digital.',
+        ],
+      },
     ],
     exercise: {
       title: 'Identificador de Monetización Digital',
@@ -245,6 +259,12 @@ export const unitsData: Record<string, UnitData> = {
             correctCategory: 'Marketplace Commission',
             explanation: 'Monetiza mediante comisión por transacción facilitada.',
           },
+          {
+            scenario: 'Google ofrece su motor de búsqueda gratis y cobra a empresas por aparecer patrocinadas.',
+            description: 'Monetización mediante subasta de palabras clave.',
+            correctCategory: 'Publicidad',
+            explanation: 'Monetiza a través del modelo publicitario (PPC / Ads).',
+          },
         ],
       },
     },
@@ -267,6 +287,18 @@ export const unitsData: Record<string, UnitData> = {
         ],
         correctOptionIndex: 1,
         explanation: 'Los efectos de red hacen que el servicio sea más valioso para cada usuario cuantos más usuarios participen.',
+      },
+      {
+        id: 'q2-3',
+        question: '¿Cuál es una característica clave del costo marginal en productos de software pura?',
+        options: [
+          'Crece exponencialmente con cada usuario',
+          'Es cercano a cero para distribuir una unidad adicional',
+          'Es igual al costo de adquisición del cliente (CAC)',
+          'Es regulado por organismos gubernamentales',
+        ],
+        correctOptionIndex: 1,
+        explanation: 'En software e información digital, duplicar la distribución tiene costo marginal prácticamente nulo.',
       },
     ],
   },
