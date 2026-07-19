@@ -557,13 +557,27 @@ export const unitsData: Record<string, UnitData> = {
           'Un LTV:CAC < 1 indica que el negocio pierde dinero con cada cliente nuevo.',
         ],
       },
+      {
+        id: 'u5-t2',
+        title: 'Seguridad en Línea y Estándar PCI-DSS',
+        subtitle: 'Protección de datos financieros y prevención de fraude',
+        content: `La seguridad en el comercio electrónico protege la confidencialidad, integridad y disponibilidad de la información financiera:
+
+1. **Estándar PCI-DSS (Payment Card Industry Data Security Standard):** Normativa internacional obligatoria para cualquier comercio que procese tarjetas de crédito.
+2. **Tokenización de Pagos:** Reemplazo del número de tarjeta real (PAN) por un token aleatorio no sensible almacenado por la pasarela (ej. Stripe, Mercado Pago).
+3. **Autenticación 3D Secure (3DS 2.0):** Capa adicional de validación (OTP/Biometría) exigida para compras en línea reduciendo contracargos por fraude.`,
+        keyTakeaways: [
+          'Nunca almacenar el número de tarjeta completo (PAN) ni el código CVV en servidores propios.',
+          'La tokenización traslada la responsabilidad de cumplimiento PCI-DSS nivel 1 hacia la pasarela de pago.',
+        ],
+      },
     ],
     exercise: {
-      title: 'Diagnóstico de Salud Financiera',
-      description: 'Evalúa la viabilidad según el indicador LTV/CAC.',
+      title: 'Diagnóstico de Salud Financiera y Seguridad',
+      description: 'Evalúa la viabilidad según el indicador LTV/CAC o el estándar de seguridad adecuado.',
       type: 'classifier',
       data: {
-        options: ['Saludable (LTV:CAC >= 3)', 'Insostenible (LTV <= CAC)'],
+        options: ['Saludable (LTV:CAC >= 3)', 'Insostenible (LTV <= CAC)', 'PCI-DSS Compliance'],
         items: [
           {
             scenario: 'Un e-commerce gasta $50 en adquirir un cliente cuyo gasto total histórico es $200.',
@@ -577,6 +591,12 @@ export const unitsData: Record<string, UnitData> = {
             correctCategory: 'Insostenible (LTV <= CAC)',
             explanation: 'Adquirir el cliente cuesta más que el retorno esperado.',
           },
+          {
+            scenario: 'Implementar tokenización en lugar de guardar datos de tarjetas en bases de datos propias.',
+            description: 'Medida de seguridad financiera.',
+            correctCategory: 'PCI-DSS Compliance',
+            explanation: 'Cumple con los requisitos de seguridad PCI-DSS al eliminar el almacenamiento directo de credenciales de tarjetas.',
+          },
         ],
       },
     },
@@ -587,6 +607,30 @@ export const unitsData: Record<string, UnitData> = {
         options: ['1:1', '2:1', '3:1', '10:1'],
         correctOptionIndex: 2,
         explanation: 'La relación LTV:CAC ideal en negocios sostenibles debe ser al menos 3 a 1.',
+      },
+      {
+        id: 'q5-2',
+        question: '¿Qué es PCI-DSS en el ámbito de las pasarelas de pago?',
+        options: [
+          'Un lenguaje de programación para bancos',
+          'El estándar de seguridad de datos de la industria de tarjetas de pago',
+          'Un impuesto sobre ventas internacionales',
+          'Un software de diseño de tiendas',
+        ],
+        correctOptionIndex: 1,
+        explanation: 'PCI-DSS es el estándar mundial obligatorio para procesar y proteger transacciones con tarjetas.',
+      },
+      {
+        id: 'q5-3',
+        question: '¿En qué consiste el proceso de tokenización en transacciones electrónicas?',
+        options: [
+          'Reemplazar datos sensibles de tarjeta por un código/token único no utilizable en caso de robo',
+          'Minar criptomonedas durante la compra',
+          'Enviar un comprobante físico por correo',
+          'Eliminar el IVA de la transacción',
+        ],
+        correctOptionIndex: 0,
+        explanation: 'La tokenización convierte datos bancarios confidenciales en tokens aleatorios seguros.',
       },
     ],
   },
