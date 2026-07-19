@@ -472,6 +472,20 @@ export const unitsData: Record<string, UnitData> = {
           'Reducir los pasos del checkout incrementa significativamente la conversión.',
         ],
       },
+      {
+        id: 'u4-t2',
+        title: 'Estrategias de SEO y SEM para E-commerce',
+        subtitle: 'Captación orgánica y pauta de alta intencionalidad comercial',
+        content: `El tráfico en e-commerce se divide entre la visibilidad orgánica (SEO) y la pauta de pago por clic (SEM/PPC).
+
+1. **SEO On-Page & Fichas de Producto:** Estructura de datos Schema.org (Product, Offer, AggregateRating), URLs amigables e imágenes optimizadas en WebP/AVIF.
+2. **Google Shopping & Performance Max:** Campañas orientadas a producto con feed XML de inventario sincronizado.
+3. **Email Remarketing y Automation:** Secuencias automatizadas de bienvenida, recuperación de carritos (abandoned cart) y campañas de re-engagement.`,
+        keyTakeaways: [
+          'Los datos estructurados Schema.org son esenciales para que los productos aparezcan en Rich Snippets de Google.',
+          'La recuperación de carritos abandonados mediante email recupera en promedio entre un 10% y 15% de ventas perdidas.',
+        ],
+      },
     ],
     exercise: {
       title: 'Estrategia de Embudo de Conversión',
@@ -485,6 +499,12 @@ export const unitsData: Record<string, UnitData> = {
             description: 'Generación de tráfico inicial.',
             correctCategory: 'TOFU (Atracción)',
             explanation: 'Atrae usuarios en la fase inicial de conocimiento del problema.',
+          },
+          {
+            scenario: 'Crear una guía comparativa en PDF descargable entre diferentes modelos de productos.',
+            description: 'Nutrición de prospectos interesados.',
+            correctCategory: 'MOFU (Consideración)',
+            explanation: 'Ayuda a evaluar opciones durante la fase de consideración.',
           },
           {
             scenario: 'Enviar un correo de descuento exclusivo por carrito abandonado dentro de las 2 horas posteriores.',
@@ -502,6 +522,20 @@ export const unitsData: Record<string, UnitData> = {
         options: ['Customer Relationship Officer', 'Conversion Rate Optimization', 'Cost Reduction Option', 'Content Retention Organization'],
         correctOptionIndex: 1,
         explanation: 'CRO significa Conversion Rate Optimization (Optimización de la Tasa de Conversión).',
+      },
+      {
+        id: 'q4-2',
+        question: '¿Qué formato de datos estructurados es recomendado por Google para indexar productos con precios y stock?',
+        options: ['Schema.org Product JSON-LD', 'XML Sitemap clásico', 'Archivo TXT de robots', 'Etiquetas meta genericas'],
+        correctOptionIndex: 0,
+        explanation: 'Schema.org con formato JSON-LD permite a los motores de búsqueda renderizar Rich Snippets de producto.',
+      },
+      {
+        id: 'q4-3',
+        question: '¿Cuál es el porcentaje promedio típico de conversión en tiendas en línea estándar?',
+        options: ['25% a 30%', '2% a 3%', '50%', '0.1%'],
+        correctOptionIndex: 1,
+        explanation: 'El promedio de la industria del comercio electrónico oscila entre el 2% y el 3%.',
       },
     ],
   },
