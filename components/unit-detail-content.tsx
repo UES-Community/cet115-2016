@@ -1,16 +1,22 @@
 'use client'
 
+import { useState } from 'react'
 import Link from 'next/link'
-import { ChevronLeft, ChevronRight, CheckCircle2, Wrench, Target } from 'lucide-react'
+import { ChevronLeft, ChevronRight, CheckCircle2, Wrench, Target, BookOpen, Sparkles, HelpCircle, Layers } from 'lucide-react'
 import type { UnitData } from '@/lib/units-data'
+import { UnitQuiz } from '@/components/unit-quiz'
+import { UnitTheory } from '@/components/unit-theory'
+import { UnitExercise } from '@/components/unit-exercise'
 
 type Props = {
   unit: UnitData
 }
 
 export function UnitDetailContent({ unit }: Props) {
+  const [activeTab, setActiveTab] = useState<'overview' | 'theory' | 'exercise' | 'quiz'>('overview')
+
   const prevId = unit.number > 1 ? String(unit.number - 1) : null
-  const nextId = unit.number < 6 ? String(unit.number + 1) : null
+  const nextId = unit.number < 7 ? String(unit.number + 1) : null
 
   return (
     <>
@@ -66,101 +72,154 @@ export function UnitDetailContent({ unit }: Props) {
               {unit.romanNumeral}
             </div>
           </div>
+
+          {/* Navigation Tabs */}
+          <div className="mt-8 flex flex-wrap gap-2 border-b border-[#d8e0ea] pb-1 font-sans">
+            <button
+              onClick={() => setActiveTab('overview')}
+              className={`flex items-center gap-2 px-4 py-2.5 rounded-xl font-semibold text-sm transition-all cursor-pointer ${
+                activeTab === 'overview'
+                  ? 'bg-white text-[#862fe7] shadow-sm border border-[#d8e0ea]'
+                  : 'text-[#6b7589] hover:text-[#111827] hover:bg-white/50'
+              }`}
+            >
+              <Layers className="w-4 h-4" /> Temas y Objetivos
+            </button>
+            <button
+              onClick={() => setActiveTab('theory')}
+              className={`flex items-center gap-2 px-4 py-2.5 rounded-xl font-semibold text-sm transition-all cursor-pointer ${
+                activeTab === 'theory'
+                  ? 'bg-white text-[#862fe7] shadow-sm border border-[#d8e0ea]'
+                  : 'text-[#6b7589] hover:text-[#111827] hover:bg-white/50'
+              }`}
+            >
+              <BookOpen className="w-4 h-4" /> Guía Teórica
+            </button>
+            <button
+              onClick={() => setActiveTab('exercise')}
+              className={`flex items-center gap-2 px-4 py-2.5 rounded-xl font-semibold text-sm transition-all cursor-pointer ${
+                activeTab === 'exercise'
+                  ? 'bg-white text-[#862fe7] shadow-sm border border-[#d8e0ea]'
+                  : 'text-[#6b7589] hover:text-[#111827] hover:bg-white/50'
+              }`}
+            >
+              <Sparkles className="w-4 h-4" /> Ejercicio Práctico
+            </button>
+            <button
+              onClick={() => setActiveTab('quiz')}
+              className={`flex items-center gap-2 px-4 py-2.5 rounded-xl font-semibold text-sm transition-all cursor-pointer ${
+                activeTab === 'quiz'
+                  ? 'bg-white text-[#862fe7] shadow-sm border border-[#d8e0ea]'
+                  : 'text-[#6b7589] hover:text-[#111827] hover:bg-white/50'
+              }`}
+            >
+              <HelpCircle className="w-4 h-4" /> Autoevaluación
+            </button>
+          </div>
         </div>
       </section>
 
       {/* Content */}
-      <section className="bg-white py-16">
-        <div className="mx-auto max-w-[1200px] px-6 grid grid-cols-1 lg:grid-cols-3 gap-10">
-          {/* Topics — 2/3 */}
-          <div className="lg:col-span-2 flex flex-col gap-6">
-            <h2
-              className="font-display font-semibold text-[#111827]"
-              style={{ fontSize: '1.375rem', letterSpacing: '-0.025em' }}
-            >
-              Temas de la Unidad
-            </h2>
-            <ol className="flex flex-col gap-4" role="list">
-              {unit.topics.map((topic, i) => (
-                <li
-                  key={i}
-                  className="flex items-start gap-4 p-5 rounded-2xl border border-[#d8e0ea] bg-white hover:border-[#ad6df4] hover:bg-[#faf5ff] transition-colors"
+      <section className="bg-white py-12">
+        <div className="mx-auto max-w-[1200px] px-6">
+          {activeTab === 'overview' && (
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
+              {/* Topics — 2/3 */}
+              <div className="lg:col-span-2 flex flex-col gap-6">
+                <h2
+                  className="font-display font-semibold text-[#111827]"
+                  style={{ fontSize: '1.375rem', letterSpacing: '-0.025em' }}
                 >
-                  <span
-                    className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold font-sans shrink-0 mt-0.5"
-                    style={{ background: unit.bg, color: unit.accent }}
-                    aria-hidden="true"
-                  >
-                    {i + 1}
-                  </span>
-                  <div className="flex flex-col gap-1">
-                    <h3 className="font-sans font-semibold text-[#111827] text-sm">
-                      {topic.title}
-                    </h3>
-                    <p className="font-sans text-sm text-[#6b7589] leading-relaxed">
-                      {topic.description}
-                    </p>
+                  Temas de la Unidad
+                </h2>
+                <ol className="flex flex-col gap-4" role="list">
+                  {unit.topics.map((topic, i) => (
+                    <li
+                      key={i}
+                      className="flex items-start gap-4 p-5 rounded-2xl border border-[#d8e0ea] bg-white hover:border-[#ad6df4] hover:bg-[#faf5ff] transition-colors"
+                    >
+                      <span
+                        className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold font-sans shrink-0 mt-0.5"
+                        style={{ background: unit.bg, color: unit.accent }}
+                        aria-hidden="true"
+                      >
+                        {i + 1}
+                      </span>
+                      <div className="flex flex-col gap-1">
+                        <h3 className="font-sans font-semibold text-[#111827] text-sm">
+                          {topic.title}
+                        </h3>
+                        <p className="font-sans text-sm text-[#6b7589] leading-relaxed">
+                          {topic.description}
+                        </p>
+                      </div>
+                    </li>
+                  ))}
+                </ol>
+              </div>
+
+              {/* Sidebar — 1/3 */}
+              <aside className="flex flex-col gap-6">
+                {/* Outcomes */}
+                <div className="bg-[#f1f5f9] rounded-2xl p-5 flex flex-col gap-4">
+                  <div className="flex items-center gap-2">
+                    <Target className="w-4 h-4 text-[#862fe7]" aria-hidden="true" />
+                    <h2 className="font-sans font-semibold text-[#111827] text-sm uppercase tracking-wide">
+                      Objetivos
+                    </h2>
                   </div>
-                </li>
-              ))}
-            </ol>
-          </div>
+                  <ul className="flex flex-col gap-3" role="list">
+                    {unit.outcomes.map((outcome, i) => (
+                      <li key={i} className="flex items-start gap-2.5">
+                        <CheckCircle2
+                          className="w-4 h-4 mt-0.5 shrink-0"
+                          style={{ color: unit.accent }}
+                          aria-hidden="true"
+                        />
+                        <span className="font-sans text-sm text-[#3f4654] leading-relaxed">
+                          {outcome}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
 
-          {/* Sidebar — 1/3 */}
-          <aside className="flex flex-col gap-6">
-            {/* Outcomes */}
-            <div className="bg-[#f1f5f9] rounded-2xl p-5 flex flex-col gap-4">
-              <div className="flex items-center gap-2">
-                <Target className="w-4 h-4 text-[#862fe7]" aria-hidden="true" />
-                <h2 className="font-sans font-semibold text-[#111827] text-sm uppercase tracking-wide">
-                  Objetivos
-                </h2>
-              </div>
-              <ul className="flex flex-col gap-3" role="list">
-                {unit.outcomes.map((outcome, i) => (
-                  <li key={i} className="flex items-start gap-2.5">
-                    <CheckCircle2
-                      className="w-4 h-4 mt-0.5 shrink-0"
-                      style={{ color: unit.accent }}
-                      aria-hidden="true"
-                    />
-                    <span className="font-sans text-sm text-[#3f4654] leading-relaxed">
-                      {outcome}
-                    </span>
-                  </li>
-                ))}
-              </ul>
+                {/* Tools */}
+                <div className="bg-white rounded-2xl p-5 border border-[#d8e0ea] flex flex-col gap-4">
+                  <div className="flex items-center gap-2">
+                    <Wrench className="w-4 h-4 text-[#862fe7]" aria-hidden="true" />
+                    <h2 className="font-sans font-semibold text-[#111827] text-sm uppercase tracking-wide">
+                      Herramientas
+                    </h2>
+                  </div>
+                  <ul className="flex flex-col gap-2" role="list">
+                    {unit.tools.map((tool, i) => (
+                      <li
+                        key={i}
+                        className="font-mono text-xs px-3 py-2 rounded-xl"
+                        style={{ background: unit.bg, color: unit.accent }}
+                      >
+                        {tool}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <button
+                  onClick={() => setActiveTab('theory')}
+                  className="w-full text-center font-sans font-semibold text-sm px-5 py-3 rounded-xl bg-[#862fe7] text-white hover:bg-[#5f259e] transition-colors cursor-pointer"
+                >
+                  Estudiar Guía Teórica
+                </button>
+              </aside>
             </div>
+          )}
 
-            {/* Tools */}
-            <div className="bg-white rounded-2xl p-5 border border-[#d8e0ea] flex flex-col gap-4">
-              <div className="flex items-center gap-2">
-                <Wrench className="w-4 h-4 text-[#862fe7]" aria-hidden="true" />
-                <h2 className="font-sans font-semibold text-[#111827] text-sm uppercase tracking-wide">
-                  Herramientas
-                </h2>
-              </div>
-              <ul className="flex flex-col gap-2" role="list">
-                {unit.tools.map((tool, i) => (
-                  <li
-                    key={i}
-                    className="font-mono text-xs px-3 py-2 rounded-xl"
-                    style={{ background: unit.bg, color: unit.accent }}
-                  >
-                    {tool}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* CTA */}
-            <Link
-              href="/"
-              className="w-full text-center font-sans font-semibold text-sm px-5 py-3 rounded-xl border border-[#d8e0ea] text-[#3f4654] hover:bg-[#f1f5f9] transition-colors"
-            >
-              Ver todas las unidades
-            </Link>
-          </aside>
+          {activeTab === 'theory' && <UnitTheory sections={unit.theory || []} />}
+          {activeTab === 'exercise' && <UnitExercise exercise={unit.exercise} />}
+          {activeTab === 'quiz' && (
+            <UnitQuiz questions={unit.quiz || []} unitTitle={unit.title} />
+          )}
         </div>
       </section>
 
