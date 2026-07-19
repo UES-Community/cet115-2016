@@ -718,6 +718,20 @@ export const unitsData: Record<string, UnitData> = {
           'La velocidad y transparencia en el rastreo de envíos son factores clave en el CSAT (Customer Satisfaction).',
         ],
       },
+      {
+        id: 'u6-t2',
+        title: 'Sistemas WMS (Warehouse Management System) y Medición CSAT',
+        subtitle: 'Gestión inteligente de almacén y satisfacción post-compra',
+        content: `La excelencia operacional requiere visibilidad completa de inventario y entregas:
+
+1. **WMS (Warehouse Management System):** Optimiza las rutas de picking & packing en almacén reduciendo errores de despacho.
+2. **Key Performance Indicators Logísticos:** On-Time In-Full (OTIF), tiempo de ciclo de pedido y costo por paquete despachado.
+3. **Métricas de Experiencia (CX):** Net Promoter Score (NPS) y Customer Satisfaction (CSAT) tras la entrega física.`,
+        keyTakeaways: [
+          'El indicador OTIF (On-Time In-Full) mide el porcentaje de pedidos entregados a tiempo y completos.',
+          'La gestión automatizada de devoluciones incrementa la tasa de recompras futuras.',
+        ],
+      },
     ],
     exercise: {
       title: 'Clasificador de Modelos Logísticos',
@@ -738,6 +752,12 @@ export const unitsData: Record<string, UnitData> = {
             correctCategory: '3PL (Tercerizado)',
             explanation: 'Es un operador logístico de tercera parte (3PL).',
           },
+          {
+            scenario: 'Una marca gestiona su propio centro de distribución con personal interno y flota dedicada.',
+            description: 'Operación propia end-to-end.',
+            correctCategory: 'In-House Fulfillment',
+            explanation: 'Es gestión de fulfillment propia (In-House).',
+          },
         ],
       },
     },
@@ -753,6 +773,30 @@ export const unitsData: Record<string, UnitData> = {
         ],
         correctOptionIndex: 1,
         explanation: 'La Última Milla es el trayecto final de entrega al cliente.',
+      },
+      {
+        id: 'q6-2',
+        question: '¿Qué significa la sigla WMS en logística de comercio electrónico?',
+        options: [
+          'Web Marketing System',
+          'Warehouse Management System',
+          'Worldwide Media Services',
+          'Wireless Monitoring Software',
+        ],
+        correctOptionIndex: 1,
+        explanation: 'WMS significa Warehouse Management System (Sistema de Gestión de Almacenes).',
+      },
+      {
+        id: 'q6-3',
+        question: '¿Qué mide el indicador logístico OTIF (On-Time In-Full)?',
+        options: [
+          'El porcentaje de visitas a la tienda web',
+          'El porcentaje de pedidos entregados puntualmente y con la totalidad de los productos correctos',
+          'La cantidad de devoluciones por mes',
+          'El costo promedio de envío por kilómetro',
+        ],
+        correctOptionIndex: 1,
+        explanation: 'OTIF mide entregas completas y a tiempo como estándar de calidad logística.',
       },
     ],
   },
@@ -803,6 +847,19 @@ export const unitsData: Record<string, UnitData> = {
           'El consentimiento implícito o casillas pre-marcadas está prohibido en normativas de privacidad avanzadas.',
         ],
       },
+      {
+        id: 'u7-t2',
+        title: 'Propiedad Intelectual y Gobernanza Digital',
+        subtitle: 'Derechos de autor, patentes, marcas y tributación transfronteriza',
+        content: `El comercio transfronterizo requiere cumplimiento de los derechos de propiedad intelectual:
+
+1. **Copyright & Trademarks:** Protección del contenido web, imágenes, software y nombres comerciales contra falsificaciones.
+2. **DMCA Safe Harbor:** Exención de responsabilidad para plataformas que retiran rápidamente contenido infractor reportado.
+3. **Impuestos Digitales y Aduanas:** Tributación de bienes y servicios digitales cruzando fronteras (ej. IVA digital/VAT).`,
+        keyTakeaways: [
+          'El principio Safe Harbor exime a los marketplaces si reaccionan ante notificaciones formales de infracción.',
+        ],
+      },
     ],
     exercise: {
       title: 'Auditoría de Ética y Privacidad UX',
@@ -819,9 +876,15 @@ export const unitsData: Record<string, UnitData> = {
           },
           {
             scenario: 'Un botón claro y de un solo clic permite a los usuarios darse de baja de la lista de correo.',
-            description: 'Proceso de baja accesible.',
+            description: 'Proceso de baja accessible.',
             correctCategory: 'Diseño Ético Transparent',
             explanation: 'Cumple con los principios de respeto a la autonomía del usuario.',
+          },
+          {
+            scenario: 'Ocultar el costo final del envío hasta el último paso del proceso de pago de 5 pantallas.',
+            description: 'Falta de transparencia de precios.',
+            correctCategory: 'Dark Pattern (Patrón Oscuro)',
+            explanation: 'Ocultar costos adicionales es la táctica de Hidden Costs.',
           },
         ],
       },
@@ -838,6 +901,25 @@ export const unitsData: Record<string, UnitData> = {
         ],
         correctOptionIndex: 1,
         explanation: 'Los Dark Patterns son trucos de diseño visual para inducir compras o suscripciones no deseadas.',
+      },
+      {
+        id: 'q7-2',
+        question: '¿Qué principio del GDPR establece que los usuarios pueden exigir la eliminación completa de sus datos personales?',
+        options: [
+          'Derecho a la Portabilidad',
+          'Derecho al Olvido (Supresión)',
+          'Derecho de Propiedad Intelectual',
+          'Derecho de Libre Comercio',
+        ],
+        correctOptionIndex: 1,
+        explanation: 'El Derecho al Olvido permite a los ciudadanos solicitar el borrado total de su información personal.',
+      },
+      {
+        id: 'q7-3',
+        question: '¿Qué mecanismo legal protege a las plataformas online contra reclamos por contenido subido por usuarios si lo retiran al ser notificados?',
+        options: ['DMCA Safe Harbor', 'Licencia Creative Commons', 'Patente Utility', 'SSL Certificate'],
+        correctOptionIndex: 0,
+        explanation: 'El principio Safe Harbor del DMCA protege a intermediarios si responden eficientemente a notificaciones de retiro.',
       },
     ],
   },
