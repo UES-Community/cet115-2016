@@ -6,6 +6,7 @@ import {
   TrendingUp,
   CreditCard,
   Package,
+  ShieldCheck,
   ArrowRight,
 } from 'lucide-react'
 
@@ -70,6 +71,16 @@ const units = [
     accent: '#5f259e',
     bg: '#f3e8ff',
   },
+  {
+    number: 'VII',
+    title: 'Cuestiones Éticas, Sociales y Políticas',
+    description:
+      'Privacidad de datos (GDPR), propiedad intelectual, gobernanza regulatoria y ética UX.',
+    icon: ShieldCheck,
+    href: '/unidad/7',
+    accent: '#dc5f05',
+    bg: '#fff7ed',
+  },
 ]
 
 export function UnitsGrid() {
@@ -85,11 +96,11 @@ export function UnitsGrid() {
             className="font-display font-semibold text-[#111827] text-balance"
             style={{ fontSize: 'clamp(1.75rem, 3vw, 2rem)', letterSpacing: '-0.025em' }}
           >
-            Seis unidades de aprendizaje
+            Siete unidades de aprendizaje
           </h2>
           <p className="mt-3 font-sans text-[#6b7589] text-base max-w-xl mx-auto">
             Un recorrido completo por los fundamentos del comercio electrónico moderno,
-            desde conceptos hasta operaciones financieras y logísticas.
+            desde conceptos hasta operaciones financieras, logísticas y regulación ética.
           </p>
         </div>
 
