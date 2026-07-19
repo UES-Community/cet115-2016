@@ -349,13 +349,27 @@ export const unitsData: Record<string, UnitData> = {
           'Headless permite mayor velocidad de carga, flexibilidad UX y omnicanalidad.',
         ],
       },
+      {
+        id: 'u3-t2',
+        title: 'Integración de ERP (Enterprise Resource Planning) y CRM',
+        subtitle: 'Sincronización de inventario, pedidos y datos de clientes',
+        content: `La integración tecnológica conecta la tienda web con el núcleo operacional de la empresa:
+
+1. **ERP (SAP, Odoo, Oracle):** Mantiene el stock centralizado en tiempo real, evitando ventas sin inventario (overselling).
+2. **CRM (Salesforce, HubSpot):** Almacena el historial de interacciones, hábitos de compra y tickets de soporte.
+3. **Middleware / Webhooks:** Garantizan la comunicación síncrona/asíncrona entre plataformas ante cada evento de compra.`,
+        keyTakeaways: [
+          'Sin integración ERP en tiempo real, el riesgo de quiebre de stock en picos de demanda aumenta radicalmente.',
+          'Las APIs REST/GraphQL son el estándar de oro para conectar microservicios e-commerce.',
+        ],
+      },
     ],
     exercise: {
       title: 'Selección de Arquitectura E-commerce',
       description: 'Elige el tipo de arquitectura ideal (Monolítica o Headless) según los requerimientos del cliente.',
       type: 'classifier',
       data: {
-        options: ['Monolítica SaaS', 'Headless Commerce'],
+        options: ['Monolítica SaaS', 'Headless Commerce', 'ERP Integration'],
         items: [
           {
             scenario: 'Una pequeña boutique local desea abrir su tienda en 24 horas con plantilla estándar.',
@@ -368,6 +382,12 @@ export const unitsData: Record<string, UnitData> = {
             description: 'Omnicanalidad y diseño totalmente personalizado.',
             correctCategory: 'Headless Commerce',
             explanation: 'Headless desacopla la lógica y permite alimentar múltiples interfaces vía API.',
+          },
+          {
+            scenario: 'Empresa distribuidora necesita actualizar automáticamente los precios y stock de 50,000 productos desde su almacén central.',
+            description: 'Sincronización masiva de inventario.',
+            correctCategory: 'ERP Integration',
+            explanation: 'Requiere integración directa con el sistema ERP corporativo.',
           },
         ],
       },
@@ -384,6 +404,25 @@ export const unitsData: Record<string, UnitData> = {
         ],
         correctOptionIndex: 1,
         explanation: 'Headless separa el frontend de la lógica de backend mediante APIs.',
+      },
+      {
+        id: 'q3-2',
+        question: '¿Cuál es la función principal de un sistema ERP en una operación e-commerce?',
+        options: [
+          'Enviar correos masivos promocionales',
+          'Gestionar el inventario, compras, finanzas y operaciones centralizadas',
+          'Diseñar el banner principal de la página de inicio',
+          'Medir los clics en redes sociales',
+        ],
+        correctOptionIndex: 1,
+        explanation: 'El ERP (Enterprise Resource Planning) centraliza la gestión operativa e inventarios.',
+      },
+      {
+        id: 'q3-3',
+        question: '¿Qué tecnología permite enviar notificaciones instantáneas entre sistemas cuando ocurre una compra?',
+        options: ['Webhooks', 'Cookies de sesión', 'FTP pasivo', 'Archivos CSV manuales'],
+        correctOptionIndex: 0,
+        explanation: 'Los Webhooks envían notificaciones HTTP en tiempo real ante eventos específicos.',
       },
     ],
   },
